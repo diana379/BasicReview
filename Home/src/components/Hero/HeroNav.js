@@ -11,7 +11,7 @@ import HeroNavSearch from "./HeroNavSearch";
 const HeroNav = () => {
   const { hiddenMenu, setHiddenMenu } = useContext(MovieContext);
     return(
-        <nav css={styles}>
+        <nav css={styles} className="menu">
             <Container>
                 <div className="wrapper">
                     <HeroNavLogo />

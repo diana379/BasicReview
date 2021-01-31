@@ -11,7 +11,7 @@ const HeroNavMenu = () => {
     return(
         <div css={styles} className={(hiddenMenu ? "hidden" : "") + " heroNavMenu"}>
             <HeroNavLink btnText="Popular" />
-            <HeroNavLink btnText="All movies" />
+            <HeroNavLink btnText="Toate Filmele" />
             <HeroNavLink btnText="Login/Sign up" />
 
         </div>
