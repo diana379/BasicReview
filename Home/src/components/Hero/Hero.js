@@ -1,12 +1,13 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import HeroNav from './HeroNav';
+import Output from "../Output/Output";
 
 const Hero = () => {
     return(
         <section css={styles} className="hero">
             <HeroNav />
-
+            <Output />
         </section>
 
       
