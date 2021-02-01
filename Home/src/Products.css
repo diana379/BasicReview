@@ -1,0 +1,22 @@
+.btn {
+    width: 200px;
+    color: aliceblue;
+    margin-bottom: 40px;
+}
+
+.products{
+    width: 150px;
+    color: rgb(233, 233, 233);
+    padding-bottom: 50px;
+    column-count: 3;
+    column-gap: 500px;}
+.imag{
+    width: 200px;
+}
+
+.name{
+    width: 200px;
+}
+.cost{
+    width: 200px;
+}

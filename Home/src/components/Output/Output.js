@@ -7,6 +7,8 @@ import Popular from '../Popular/Popular';
 import Movies from "../Movies/Movies";
 import MoviesPagination from '../Movies/MoviesPagination';
 import Login from "../Login/login";
+import Cart from "../../Cart";
+import Products from "../../Products";
 
 const Output = () => {
     const {activeLink} = useContext(MovieContext);
@@ -32,6 +34,7 @@ const Output = () => {
                 )
             }
 
+
 {
                 activeLink === "Login/Sign up" && (
                     <Container>
@@ -39,6 +42,15 @@ const Output = () => {
                     </Container>
                 )
             }
+
+{
+                activeLink === "Shop" && (
+                    <Container>
+                        <Products/>
+                    </Container>
+                )
+            }
+
 
         </div>
 

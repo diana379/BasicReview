@@ -1,9 +1,15 @@
 import React, { useState, createContext, useEffect } from "react";
+// import Cart from "../Cart";
+import Products from '../Products';
+
 
 export const MovieContext = createContext();
 
 export const MovieState = ({ children }) => {
    const API_KEY = "a2da2e68ea918056413407d9c9335957";
+
+   const PAGE_PRODUCTS = 'products';
+   const PAGE_CART = 'cart';
 
    const [isLoading, setIsLoading] = useState(false);
    const [hiddenMenu, setHiddenMenu] = useState(true);
@@ -52,7 +58,19 @@ export const MovieState = ({ children }) => {
    };
 
 
-
+   const [cart, setCart] = useState([]);
+   const [page, setPage] = useState(PAGE_PRODUCTS);
+ 
+   const navigateTo = (nextPage) => {
+     setPage(nextPage);
+   };
+ 
+   const getCartTotal = () => {
+     return cart.reduce(
+       (sum, { quantity }) => sum + quantity,
+       0
+     );
+   };
 
    useEffect(() => {
       getPopularMovies();
@@ -74,12 +92,32 @@ export const MovieState = ({ children }) => {
    }, [movies, currentPage]);
 
    return (
-      <MovieContext.Provider value={{ hiddenMenu, setHiddenMenu,
+      <React.Fragment>
+          <MovieContext.Provider value={{ hiddenMenu, setHiddenMenu,
        activeLink, setActiveLink, popularMovies, search, setSearch,
        currentPage, setCurrentPage,movies, setMovies,
        getPopularMovies, getMovies, handleSearch, isLoading, setIsLoading,
        showPagination, setShowPagination,newPage}}>
           {children}
       </MovieContext.Provider>
+         <div className="App">
+      <header>
+        <button hidden onClick={() => navigateTo(PAGE_CART)}>
+          Go to Cart ({getCartTotal()})
+        </button>
+
+        <button hidden onClick={() => navigateTo(PAGE_PRODUCTS)}>
+          View Products
+        </button>
+      </header>
+      {/* {page === PAGE_PRODUCTS && (
+        <Products cart={cart} setCart={setCart} />
+      )} */}
+      {/* {page === PAGE_CART && (
+        <Cart cart={cart} setCart={setCart} />
+      )} */}
+    </div>
+      </React.Fragment>
+     
    );
       };

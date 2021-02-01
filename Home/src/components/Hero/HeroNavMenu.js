@@ -13,6 +13,8 @@ const HeroNavMenu = () => {
             <HeroNavLink btnText="Popular" />
             <HeroNavLink btnText="Toate Filmele" />
             <HeroNavLink btnText="Login/Sign up" />
+            <HeroNavLink btnText="Shop" />
+
 
         </div>
     );
